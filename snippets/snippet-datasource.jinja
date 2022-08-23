@@ -1,9 +1,9 @@
     ##
-    # DataSource and JPA/Hibernate
+    # DataSource and JPA/Hibernate ({{database_name}})
     ##
 {% if database_name_formatted == 'h2' %}
     datasource:
-        url: jdbc:h2:mem:devdb
+        url: jdbc:h2:mem:dev_db
         username: sa
     h2:
         console:
@@ -12,14 +12,14 @@
 {% if database_name_formatted == 'postgresql' %}
     datasource:
         driverClassName: org.postgresql.Driver
-        url: jdbc:postgresql://localhost:5432/postgres
+        url: jdbc:postgresql://localhost:5432/dev_db
         username: postgres
         password: postgres
 {% endif %}
 {% if database_name_formatted == 'mysql' %}
     datasource:
         driverClassName: com.mysql.jdbc.Driver
-        url: jdbc:mysql://localhost/devdb
+        url: jdbc:mysql://localhost/dev_db
         username: mysql
         password: mysql
 {% endif %}

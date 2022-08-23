@@ -1,0 +1,21 @@
+    ##
+    # DataSource and JPA/Hibernate ({{database_name}})
+    ##
+{% if database_name_formatted == 'h2' %}
+    datasource:
+        url: jdbc:h2:mem:test_db
+        username: sa
+    h2:
+        console:
+            enabled: false
+{% endif %}
+{% if database_name_formatted == 'postgresql' %}
+    datasource:
+        driverClassName: org.testcontainers.jdbc.ContainerDatabaseDriver
+        url: jdbc:tc:postgresql:14.5:////test_db
+{% endif %}
+{% if database_name_formatted == 'mysql' %}
+    datasource:
+        driverClassName: org.testcontainers.jdbc.ContainerDatabaseDriver
+        url: jdbc:tc:mysql:8.0.30:////test_db
+{% endif %}

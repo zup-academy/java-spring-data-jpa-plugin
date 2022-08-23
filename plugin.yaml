@@ -38,6 +38,16 @@ hooks:
           when:
             not-exists: "datasource:"
   - type: edit
+    path: src/test/resources/application-test.yaml
+    trigger: after-render    
+    changes:
+      - search:
+          string: "spring:"
+          insert-after:
+            snippet: snippets/snippet-datasource-test.jinja
+          when:
+            not-exists: "datasource:"
+  - type: edit
     path: pom.xml
     trigger: after-render    
     changes:
