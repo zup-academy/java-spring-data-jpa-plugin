@@ -34,7 +34,7 @@ hooks:
       - search:
           string: "spring:"
           insert-after:
-            snippet: snippets/snippet-datasource-h2.txt
+            snippet: snippets/snippet-datasource.jinja
           when:
             not-exists: "datasource:"
   - type: edit
@@ -44,7 +44,7 @@ hooks:
       - search:
           string: "</dependencies>"
           insert-before:
-            snippet: snippets/snippet-maven-dependencies-h2.txt
+            snippet: snippets/snippet-maven-dependencies.jinja
           when:
-            not-exists-snippet: snippets/snippet-maven-dependencies-h2.txt
+            not-exists-snippet: snippets/snippet-maven-dependencies.jinja
       
