@@ -15,6 +15,13 @@
         url: jdbc:postgresql://localhost:5432/dev_db
         username: postgres
         password: postgres
+        hikari:
+            auto-commit: false
+            maximum-pool-size: 20
+            connection-timeout: 10000       # 10s
+            validation-timeout: 5000        # 5s
+            max-lifetime: 1800000           # 30min
+            leak-detection-threshold: 60000 # 1min
 {% endif %}
 {% if database_name_formatted == 'mysql' %}
     datasource:
@@ -22,6 +29,18 @@
         url: jdbc:mysql://localhost/dev_db
         username: mysql
         password: mysql
+        hikari:
+            auto-commit: false
+            maximum-pool-size: 20
+            connection-timeout: 10000       # 10s
+            validation-timeout: 5000        # 5s
+            max-lifetime: 1800000           # 30min
+            leak-detection-threshold: 60000 # 1min
+            data-source-properties:
+                useServerPrepStmts: false
+                cachePrepStmts: true
+                prepStmtCacheSize: 50
+                prepStmtCacheSqlLimit: 1024
 {% endif %}
     jpa:
         generate-ddl: true
@@ -34,7 +53,7 @@
                 format_sql: true
                 jdbc:
                     time_zone: UTC
-                    batch_size: 20
+                    batch_size: 15
                     order_inserts: true
                     order_updates: true
                     batch_versioned_data: true
