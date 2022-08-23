@@ -24,7 +24,7 @@ inputs:
       - MySQL
 
 computed-inputs:
-    database_name_formatted: "{{database_name|lower}}"
+  database_name_formatted: "{{database_name|lower}}"
 
 hooks:
   - type: edit
@@ -34,17 +34,17 @@ hooks:
       - search:
           string: "spring:"
           insert-after:
-            snippet: snippets/snippet-datasource-{{database_name_formatted}}.txt
+            snippet: snippets/snippet-datasource-h2.txt
           when:
             not-exists: "datasource:"
   - type: edit
-      path: pom.xml
-      trigger: after-render    
-      changes:
-        - search:
-            string: "</dependencies>"
-            insert-before:
-              snippet: snippets/snippet-maven-dependencies-{{database_name_formatted}}.txt
-            when:
-              not-exists-snippet: snippets/snippet-maven-dependencies-{{database_name_formatted}}.txt
+    path: pom.xml
+    trigger: after-render    
+    changes:
+      - search:
+          string: "</dependencies>"
+          insert-before:
+            snippet: snippets/snippet-maven-dependencies-h2.txt
+          when:
+            not-exists-snippet: snippets/snippet-maven-dependencies-h2.txt
       
