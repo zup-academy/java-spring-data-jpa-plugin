@@ -1,5 +1,5 @@
 name: java-spring-data-jpa-plugin
-description: Plugin to configure and enable Spring Data JPA in Java and Spring Boot applications
+description: Plugin to enable and configure Spring Data JPA in Spring Boot Java applications
 display-name: java-spring-data-jpa-plugin
 picture: plugin.png
 category: backend # Ref: https://docs.stackspot.com/latest/docs/creators-guide/yaml/#category
@@ -15,17 +15,36 @@ technologies: # Ref: https://docs.stackspot.com/latest/docs/creators-guide/yaml/
 types:
   - app
 inputs:
-  - label: Input Example
+  - label: Choose one database (RDBMS)
+    name: database_name
     type: text
-    name: example
-    default: any text
-  - label: Example of number
-    type: int
-    name: any_number
-    default: "10"
-  - label: Example of list
-    type: multiselect
-    name: any_list
     items:
-      - item1
-      - item2
+      - H2
+      - PostgreSQL
+      - MySQL
+
+computed-inputs:
+    database_name_formatted: "{{database_name|lower}}"
+
+hooks:
+  - type: edit
+    path: src/main/resources/application.yaml
+    trigger: after-render    
+    changes:
+      - search:
+          string: "spring:"
+          insert-after:
+            snippet: snippets/snippet-datasource-{{database_name_formatted}}.txt
+          when:
+            not-exists: "datasource:"
+  - type: edit
+      path: pom.xml
+      trigger: after-render    
+      changes:
+        - search:
+            string: "</dependencies>"
+            insert-before:
+              snippet: snippets/snippet-maven-dependencies-{{database_name_formatted}}.txt
+            when:
+              not-exists-snippet: snippets/snippet-maven-dependencies-{{database_name_formatted}}.txt
+      
