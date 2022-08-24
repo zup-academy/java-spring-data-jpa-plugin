@@ -27,6 +27,9 @@ computed-inputs:
   database_name_formatted: "{{database_name|lower}}"
 
 hooks:
+  ##
+  # Edit application.yaml
+  ##
   - type: edit
     path: src/main/resources/application.yaml
     trigger: after-render    
@@ -37,6 +40,9 @@ hooks:
             snippet: snippets/snippet-application.yaml.jinja
           when:
             not-exists: "datasource:"
+  ##
+  # Edit application-test.yaml
+  ##
   - type: edit
     path: src/test/resources/application-test.yaml
     trigger: after-render    
@@ -47,6 +53,9 @@ hooks:
             snippet: snippets/snippet-application-test.yaml.jinja
           when:
             not-exists: "datasource:"
+  ##
+  # Edit pom.xml
+  ##
   - type: edit
     path: pom.xml
     trigger: after-render    
@@ -57,4 +66,23 @@ hooks:
             snippet: snippets/snippet-pom.xml.jinja
           when:
             not-exists-snippet: snippets/snippet-pom.xml.jinja
+  ##
+  # Create or edit docker-compose.yaml
+  ##
+  - type: render-templates
+    trigger: after-render
+    path: snippets/docker-postgresql
+    condition:
+      variable: database_name_formatted
+      operator: ==
+      value: postgresql
+
+  - type: render-templates
+    trigger: after-render
+    path: snippets/docker-mysql
+    condition:
+      variable: database_name_formatted
+      operator: ==
+      value: mysql
+  
       
