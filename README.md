@@ -1,0 +1,44 @@
+## Java Spring Data JPA Plugin
+
+The **java-spring-data-jpa-plugin** is a plugin to enable and configure Spring Data JPA in Spring Boot Java applications.
+
+Applying this plugin into a Spring Boot project will prepare and configure it for all those features:
+
+- Enables and configures Spring Data JPA using the specified database;
+- Configures Hibernate following good practices for high performance and throughput;
+- Configures HikariCP connection pool following good practices for high performance and throughput;
+- Configures application to run Spring Boot integration tests using TestContainers so that you can write good tests to validate properly your persistence layer and SQL queries;
+- Configures Docker Compose so that you can run you application locally;
+
+All configuration and tuning is done for the specified database. At this moment, these are the supported databases:
+
+- H2
+- PostgreSQL
+- MySQL
+
+New databases will be supported soon 😊
+
+## How to use
+
+The following steps show how to apply the plugin to an existing Java Spring Boot application.
+
+1. First, import the our stack if you haven't done it yet:
+```sh
+stk import stack https://github.com/zup-academy/java-springboot-restapi-stack
+```
+
+2. Now, in the project directory, apply the plugin and answer all the questions:
+```sh
+stk apply plugin java-springboot-restapi-stack/java-spring-data-jpa-plugin
+```
+
+3. Still inside the project directory, you can verify whether the plugin was applied or not by checking the updated and created files:
+```sh
+git status
+```
+
+Nice! You're ready for production I guess 🥳
+
+## Support
+
+If you need any help, please open an [issue on Plugin's Github repository](https://github.com/zup-academy/java-spring-data-jpa-plugin). 
