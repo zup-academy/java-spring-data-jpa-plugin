@@ -18,3 +18,4 @@ services:
 
 volumes:
   mysql-data: # named volumes can be managed easier using docker-compose
+    driver: local
