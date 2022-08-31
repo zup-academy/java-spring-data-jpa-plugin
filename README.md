@@ -22,7 +22,7 @@ New databases will be supported soon 😊
 
 The following steps show how to apply the plugin to an existing Java Spring Boot application.
 
-1. First, import the our stack if you haven't done it yet:
+1. First, import our stack if you haven't done it yet:
 ```sh
 stk import stack https://github.com/zup-academy/java-springboot-restapi-stack
 ```
