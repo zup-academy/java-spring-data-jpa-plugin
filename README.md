@@ -8,7 +8,7 @@ Applying this plugin into a Spring Boot project will prepare and configure it fo
 2. Configures Hibernate following good practices for high performance and throughput;
 3. Configures HikariCP connection pool following good practices for high performance and throughput;
 4. Configures application to run Spring Boot integration tests using TestContainers so that you can write good tests to validate properly your persistence layer and SQL queries;
-5. Configures Docker Compose so that you can run you application locally;
+5. Configures Docker Compose so that you can run your application locally;
 
 All configuration and tuning is done for the specified database. At this moment, these are the supported databases:
 
