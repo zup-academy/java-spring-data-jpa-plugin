@@ -25,6 +25,8 @@ inputs:
 
 computed-inputs:
   database_name_formatted: "{{database_name|lower}}"
+  path_code_directory: "{{path_code_directory | replace('.','/')}}"
+  path_test_code_directory: "{{path_test_code_directory | replace('.','/')}}"
 
 hooks:
   ##
@@ -85,4 +87,20 @@ hooks:
       operator: ==
       value: mysql
   
+  ##
+  # Create directory samples code
+  ##
+
+  - type: run-script
+    trigger: before-input
+    script: snippets/open-pom.py
+    
+  ##
+  # Create samples code
+  ##
+  - type: render-templates
+    trigger: after-render
+    path: snippets/samples
+
+
       
