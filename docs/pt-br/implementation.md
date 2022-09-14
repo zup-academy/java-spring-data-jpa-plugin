@@ -8,7 +8,7 @@
 
 ### Operações
 
-1. A classe mapeada deve ser anotada obrigatoriamente com @Entity e @Id.
+1. A classe mapeada deve ser anotada obrigatoriamente com `@Entity` e `@Id`.
     ```JAVA
     @Entity
     public class Book {
@@ -27,7 +27,7 @@
 
     }
     ```
-3. Ao realizar uma lógica de négocio que onde o resultado será persistido ao BD, anote o metodo com @Transactional para habilitar o controle transacional ao escopo.
+3. Ao realizar uma lógica de négocio que onde o resultado será persistido ao BD, anote o metodo com `@Transactional` para habilitar o controle transacional ao escopo.
     ```java
     @Service
     public class BookService{
