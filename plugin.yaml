@@ -4,6 +4,8 @@ display-name: java-spring-data-jpa-plugin
 picture: plugin.png
 category: backend # Ref: https://docs.stackspot.com/latest/docs/creators-guide/yaml/#category
 compatibility:
+  - maven
+  - application.yaml
   - java
   - spring
 about: docs/about.md
