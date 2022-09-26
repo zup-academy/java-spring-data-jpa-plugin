@@ -6,6 +6,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.test.context.ActiveProfiles;
 
 import java.util.Optional;
@@ -56,7 +57,7 @@ class BookRepositoryTest {
         Book ddd = new Book(isbn, "Domain Drive Design", "DDD");
         repository.save(ddd);
 
-        assertThrows(Exception.class, () -> {
+        assertThrows(DataIntegrityViolationException.class, () -> {
 
             Book cleanCode = new Book(isbn, "Clean Code", "clean code samples");
             repository.save(cleanCode);
