@@ -2,11 +2,6 @@
 
 The **java-spring-data-jpa-plugin** is a plugin to enable and configure Spring Data JPA in Spring Boot Java applications.
 
-
-![Watch the video](https://youtu.be/vt5fpE0bzSY)
-
-
-
 Applying this plugin into a Spring Boot project will prepare and configure it for all those features:
 
 1. Enables and configures Spring Data JPA using the specified database;
