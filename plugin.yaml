@@ -8,10 +8,10 @@ compatibility:
   - application.yaml
   - java
   - spring
-about: docs/about.md
-usage: docs/usage.md
-use-case: docs/use-case.md
-implementation: docs/implementation.md
+about: docs/pt-br/about.md
+usage: docs/pt-br/about.md
+use-case: docs/pt-br/about.md
+implementation: docs/pt-br/about.md
 technologies: # Ref: https://docs.stackspot.com/latest/docs/creators-guide/yaml/#technologies
   - "Api"
 types:
